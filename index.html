@@ -1,0 +1,370 @@
+```html
+<!--
+  REPLYZEN
+  Projeto acadêmico utilizando HTML, CSS, JavaScript,
+  integração com Tally Forms e Google Sheets.
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Replyzen - Automação Inteligente para WhatsApp</title>
+
+  <!--
+  CSS RESPONSÁVEL PELO VISUAL DO SITE
+  Aqui são definidas:
+  - cores
+  - tipografia
+  - animações
+  - responsividade
+  - layout geral
+-->
+
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /*
+  Faz a página rolar suavemente
+  quando o usuário clica no botão principal.
+*/
+html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0f172a;
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #0f172a, #111827, #1e293b);
+    }
+
+    .hero {
+      max-width: 900px;
+    }
+
+    .tag {
+      color: #00C875;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 56px;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: #cbd5e1;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 18px 36px;
+      background: #00C875;
+      color: white;
+      text-decoration: none;
+      border-radius: 14px;
+      font-size: 18px;
+      transition: 0.3s ease;
+      font-weight: bold;
+    }
+
+    /*
+  Efeito visual do botão.
+  Quando o mouse passa em cima:
+  - o botão aumenta
+  - muda levemente a cor
+*/
+.btn:hover {
+      transform: scale(1.05);
+      background: #00b46a;
+    }
+
+    section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #cbd5e1;
+      margin-bottom: 50px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 18px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: #00C875;
+    }
+
+    .image-section img {
+      width: 100%;
+      border-radius: 20px;
+      margin-bottom: 30px;
+    }
+
+    .form-box {
+      background: #1e293b;
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    footer {
+      background: #020617;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    footer h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    footer p {
+      color: #94a3b8;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .footer-small {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 38px;
+      }
+
+      .subtitle {
+        font-size: 18px;
+      }
+
+      .section-title {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="hero">
+      <div class="tag">REPLYZEN</div>
+
+      <h1>Sua empresa perde clientes por demora no WhatsApp?</h1>
+
+      <p class="subtitle">
+        Automatize atendimentos, organize contatos e responda clientes mais rápido.
+      </p>
+
+      <a href="#formulario" class="btn">
+        Quero automatizar meu atendimento
+      </a>
+    </div>
+  </header>
+
+  <section class="image-section">
+    <div class="container">
+      <img src="IMAGEM1.png" alt="Automação WhatsApp" />
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="section-title">Por que automatizar?</h2>
+
+      <p class="section-subtitle">
+        Pequenos negócios perdem clientes todos os dias pela demora no atendimento.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Atendimento rápido</h3>
+          <p>
+            Responda clientes em menos tempo e aumente suas conversões.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Organização automática</h3>
+          <p>
+            Centralize contatos e mantenha tudo organizado automaticamente.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Mais vendas</h3>
+          <p>
+            Automatize processos e aumente oportunidades no WhatsApp.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="image-section">
+    <div class="container">
+      <img src="IMAGEM2.png" alt="Problemas no atendimento" />
+      <img src="IMAGEM3.png" alt="Automação Replyzen" />
+      <img src="IMAGEM4.png" alt="Resultados positivos" />
+    </div>
+  </section>
+
+  <!--
+  SEÇÃO DO FORMULÁRIO
+  Aqui foi integrado o formulário externo do Tally.
+  Os dados enviados são automaticamente enviados
+  para o Google Sheets.
+-->
+
+<section id="formulario">
+    <div class="container">
+      <div class="form-box">
+
+        <h2 class="section-title">Receba um diagnóstico gratuito</h2>
+
+        <p class="section-subtitle">
+          Descubra como automatizar seu atendimento e melhorar seus resultados.
+        </p>
+
+        <!--
+  HTML EMBEDADO DO TALLY
+  O iframe carrega o formulário diretamente dentro do site.
+-->
+
+<iframe
+          data-tally-src="https://tally.so/embed/ja5zeE"
+          loading="lazy"
+          width="100%"
+          height="600"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="Replyzen Formulário">
+        </iframe>
+
+        <!--
+  SCRIPT OFICIAL DO TALLY
+  Responsável por carregar o formulário dinamicamente.
+-->
+
+<script>
+          var d = document,
+          w = "https://tally.so/widgets/embed.js",
+          v = function() {
+            if (typeof Tally !== "undefined") {
+              Tally.loadEmbeds();
+            } else {
+              d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e) {
+                e.src = e.dataset.tallySrc;
+              });
+            }
+          };
+
+          if (typeof Tally !== "undefined") {
+            v();
+          } else if (d.querySelector('script[src="' + w + '"]') == null) {
+            var s = d.createElement("script");
+            s.src = w;
+            s.onload = v;
+            s.onerror = v;
+            d.body.appendChild(s);
+          }
+        </script>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <h2>ATENDA. AUTOMATIZE. CRESÇA.</h2>
+
+    <p>
+      A Replyzen ajuda pequenos negócios a automatizar atendimentos no WhatsApp,
+      responder clientes mais rápido e organizar contatos de forma inteligente.
+    </p>
+
+    <div class="footer-small">
+      Projeto acadêmico desenvolvido com HTML, CSS, JavaScript, Tally e Google Sheets.
+    </div>
+  </footer>
+
+  <!--
+  JAVASCRIPT PERSONALIZADO
+  Utilizado para demonstrar personalização e interações.
+-->
+
+<script>
+    console.log("Replyzen carregado com sucesso!");
+
+    document.querySelector('.btn').addEventListener('click', function() {
+      console.log('Botão clicado');
+    });
+  </script>
+
+</body>
+</html>
+```
+
+Agora basta:
+
+1. Copiar tudo.
+2. Colar dentro do arquivo `index.html` no GitHub.
+3. Trocar `IMAGEM1.png`, `IMAGEM2.png`, etc., pelos nomes reais das suas imagens.
+4. Fazer upload das imagens no repositório.
+5. Dar commit.
+6. Ativar GitHub Pages.
+
+Depois disso, seu site estará online com HTML, CSS e JavaScript reais funcionando.
